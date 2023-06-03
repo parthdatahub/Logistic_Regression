@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicting the Survival of Titanic Passengers : Logistic Regression - Parth</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0d0d0e56;
+            margin: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 5;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(205, 17, 17, 0.1);
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="text"] {
+            padding: 2px;
+            margin-bottom: 0px;
+            width: 100px;
+            border: 1px solid #830505;
+            border-radius: 4px;
+        }
+        
+        input[type="submit"] {
+            padding: 15px 30px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        p {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Predicting the Survival of Titanic Passengers : Logistic Regression - Parth</h1>
+    <h3>Training Accuracy = 80%  & Testing Accuracy = 79% </h3>
+    <form method="GET" action="/predict_titanic">
+        <label>Pclass</label>
+        <input type="text" name="Pclass" value="{{ request.args.get('Pclass', '') }}">
+        <br>
+        <label>Gender</label>
+        <input type="text" name="Gender" value="{{ request.args.get('Gender', '') }}">
+        <br>
+        <label>Age</label>
+        <input type="text" name="Age" value="{{ request.args.get('Age', '') }}">
+        <br>
+        <label>SibSp</label>
+        <input type="text" name="SibSp" value="{{ request.args.get('SibSp', '') }}">
+        <br>
+        <label>Parch</label>
+        <input type="text" name="Parch" value="{{ request.args.get('Parch', '') }}">
+        <br>
+        <label>Fare</label>
+        <input type="text" name="Fare" value="{{ request.args.get('Fare', '') }}">
+        <br>
+        <label>Embarked</label>
+        <input type="text" name="Embarked" value="{{ request.args.get('Embarked', '') }}">
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    <p><b>{{ prediction }}</b></p>
+</body>
+</html>
